@@ -34,7 +34,7 @@ public class GCIWebdriver {
 		driver.findElement(By.cssSelector("#desktop_nav .wireless>a")).click();
 	}
 
-	public void checkPageTitle(){
+	public void checkWirelessPageTitle(){
 		assertThat(driver.getTitle(), is("Wireless | GCI"));
 		}
 

@@ -13,10 +13,6 @@ public class StepDefs {
 		script.setUp();
 		script.goToHomePage();
 	}
-/*
-	public void tidyUp() {
-		script.tearDown();
-	}*/
 	
 	@Given("^I am on the homepage$")
 	public void i_am_on_the_homepage() throws Throwable {
@@ -25,13 +21,12 @@ public class StepDefs {
 
 	@When("^I click on Wireless$")
 	public void i_click_on_Wireless() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 	    script.clickOnWireless();
 	}
 
 	@Then("^I'm taken to the Wireless page$")
 	public void i_m_taken_to_the_Wireless_page() throws Throwable {
-		script.checkPageTitle();
+		script.checkWirelessPageTitle();
 	}
 	
 	@After
