@@ -12,6 +12,6 @@ import cucumber.api.junit.Cucumber;
 		tags = {"@Runme"}
 )
 
-public class cukerunner {
+public class MyTestRunner {
 
 }
