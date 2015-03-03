@@ -14,6 +14,11 @@ public class StepDefs {
 		script.goToHomePage();
 	}
 	
+	@After
+	public void tearDown() throws Exception {
+		script.tearDown();
+	}
+	
 	@Given("^I am on the homepage$")
 	public void i_am_on_the_homepage() throws Throwable {
 	    setUpWebDriver();
@@ -29,9 +34,14 @@ public class StepDefs {
 		script.checkWirelessPageTitle();
 	}
 	
-	@After
-	public void tearDown() throws Exception {
-		script.tearDown();
+	
+	@When("^I click on Broadband$")
+	public void i_click_on_Broadband() throws Throwable {
+	    script.clickOnBroadband();
 	}
 
+	@Then("^I'm taken to the Broadband page$")
+	public void i_m_taken_to_the_Broadband_page() throws Throwable {
+		script.checkBroadbandPageTitle();
+	}
 }

@@ -37,5 +37,12 @@ public class GCIWebdriver {
 	public void checkWirelessPageTitle(){
 		assertThat(driver.getTitle(), is("Wireless | GCI"));
 		}
+	public void clickOnBroadband(){
+		driver.findElement(By.cssSelector("#desktop_nav .internet>a")).click();
+	}
+
+	public void checkBroadbandPageTitle(){
+		assertThat(driver.getTitle(), is("Alaska’s Fastest Internet | GCI"));
+		}
 
 }
