@@ -3,8 +3,10 @@ package app_code;
 import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
