@@ -1,12 +1,14 @@
 package test_code;
 
 import app_code.GCIWebdriver;
+import app_code.MyGCIWebdriver;
 import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.*;
 
 public class StepDefs {
 	private GCIWebdriver gciDriver;
+	private MyGCIWebdriver myGciDriver;
 
 	public void setUpWebDriver() throws Exception {
 		gciDriver = new GCIWebdriver();
@@ -14,9 +16,15 @@ public class StepDefs {
 		gciDriver.goToHomePage();
 	}
 	
+	public void setUpMyGciWebDriver() throws Exception {
+		myGciDriver = new MyGCIWebdriver();
+		myGciDriver.setUp();
+		myGciDriver.goToMyGCI();
+	}
+	
 	@After
 	public void tearDown() throws Exception {
-		gciDriver.tearDown();
+		myGciDriver.tearDown();
 	}
 	
 	@Given("^I am on the homepage$")
@@ -44,27 +52,39 @@ public class StepDefs {
 	public void i_m_taken_to_the_Broadband_page() throws Throwable {
 		gciDriver.checkBroadbandPageTitle();
 	}
+	
 	@Given("^I am on the myGCI login page$")
 	public void i_am_on_the_myGCI_login_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		setUpMyGciWebDriver();
 	}
 
 	@When("^I enter good credentials$")
 	public void i_enter_good_credentials() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    // find username field and fill in valid username
+		myGciDriver.goodUsername();
+		// find password field and fill in valid password
+		myGciDriver.goodPassword();
+		// find Login button and click it
+		myGciDriver.clickLogin();
 	}
 
-	@Then("^I'm taken to the GCI\\.com home page$")
-	public void i_m_taken_to_the_GCI_com_home_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@Then("^I'm taken to the MyGCI\\.com home page$")
+	public void i_m_taken_to_the_My_GCI_com_home_page() throws Throwable {
+	    myGciDriver.checkMyGciPageTitle();
 	}
 
 	@When("^I enter bad credentials$")
 	public void i_enter_bad_credentials() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		// find username field and fill in valid username
+		myGciDriver.goodUsername();
+		// find password field and fill in bad password
+		myGciDriver.badPassword();
+		// find Login button and click it
+		myGciDriver.clickLogin();
+	}
+	
+	@Then("^I get a bad credentials error message$")
+	public void i_get_a_bad_credentials_error_message() throws Throwable {
+		myGciDriver.checkLoginError();
 	}
 }
