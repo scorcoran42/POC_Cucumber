@@ -68,9 +68,9 @@ public class StepDefs {
 		myGciDriver.clickLogin();
 	}
 
-	@Then("^I'm taken to the MyGCI\\.com home page$")
-	public void i_m_taken_to_the_My_GCI_com_home_page() throws Throwable {
-	    myGciDriver.checkMyGciPageTitle();
+	@Then("^I'm taken to the myGCI home page$")
+	public void i_m_taken_to_the_myGCI_home_page() throws Throwable {
+		myGciDriver.checkMyGciPageTitle();
 	}
 
 	@When("^I enter bad credentials$")
@@ -86,5 +86,14 @@ public class StepDefs {
 	@Then("^I get a bad credentials error message$")
 	public void i_get_a_bad_credentials_error_message() throws Throwable {
 		myGciDriver.checkLoginError();
+	}
+	@When("^I don't enter a password$")
+	public void i_don_t_enter_a_password() throws Throwable {
+		myGciDriver.goodUsername();
+		myGciDriver.clickLogin();
+	}
+	@Then("^I get a no password error message$")
+	public void i_get_a_no_password_error_message() throws Throwable {
+		myGciDriver.checkNoPasswordError();
 	}
 }

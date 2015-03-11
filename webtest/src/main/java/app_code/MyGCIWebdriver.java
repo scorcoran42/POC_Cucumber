@@ -48,4 +48,7 @@ public class MyGCIWebdriver {
 	public void checkLoginError(){
 		assertThat(driver.findElement(By.className("error")).getText(), is("We didn't recognize your MyGCI login and/or your password. Please try again..."));
 	}
+	public void checkNoPasswordError(){
+		assertThat(driver.findElement(By.cssSelector("label[class=error]")).getText(), is("Please enter your password."));
+	}
 }
